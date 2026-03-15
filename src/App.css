@@ -1,0 +1,276 @@
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  overflow:hidden;
+  background:#0f1629;
+}
+
+/* BACKGROUND */
+
+.mario-bg{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:linear-gradient(135deg,#476EAE,#1c2b4a,#0f1629);
+  z-index:-2;
+}
+
+.cloud{
+  position:absolute;
+  width:120px;
+  height:60px;
+  background:rgb(141, 223, 255);
+  border-radius:50px;
+  opacity:0.9;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #d4e4f7);
+  background: radial-gradient(circle at 30% 30%, #f8f9ff, #e0e5ec, #b0c0d0);
+  border-radius: 60% 40% 50% 30%;
+  box-shadow: 10px 15px 20px rgba(0,0,0,0.1), inset -5px -5px 15px rgba(0,0,0,0.1);
+}
+
+.cloud::before,
+.cloud::after{
+  content:'';
+  position:absolute;
+  background:rgb(200, 224, 244);
+  border-radius:50%;
+}
+
+.cloud::before{
+  width:70px;
+  height:70px;
+  top:-30px;
+  left:15px;
+}
+
+.cloud::after{
+  width:80px;
+  height:80px;
+  top:-20px;
+  right:10px;
+}
+
+.cloud1{
+  top:60px;
+  left:-150px;
+  animation:cloudMove 20s linear infinite;
+}
+
+.cloud2{
+  top:150px;
+  left:-200px;
+  animation:cloudMove 25s linear infinite;
+}
+
+.cloud3{
+  top:250px;
+  left:-250px;
+  animation:cloudMove 30s linear infinite;
+}
+
+.cloud4{
+  top:350px;
+  left:-350px;
+  animation:cloudMove 35s linear infinite;
+}
+
+@keyframes cloudMove{
+  from{transform:translateX(0)}
+  to{transform:translateX(120vw)}
+}
+
+/* PARTICLE EFFECT */
+
+body::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background-image:
+  radial-gradient(circle,rgba(167,227,153,0.25) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:starsMove 70s linear infinite;
+}
+
+@keyframes starsMove{
+  from{transform:translateY(0);}
+  to{transform:translateY(-1000px);}
+}
+
+/* CONTAINER */
+
+.container{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
+
+/* TITLE */
+
+.title{
+  font-size:80px;
+  font-weight:bold;
+  color:#ecf964;
+  text-shadow:
+  0 0 10px #a3f755,
+  0 0 20px #A7E399,
+  0 0 40px #48B3AF,
+  0 0 60px #48B3AF;
+
+  animation:titleGlow 1.5s infinite alternate;
+
+  animation:glowPulse 1s infinite alternate;
+}
+
+.title-text{
+  font-family:'Orbitron',sans-serif;
+  font-size:56px;
+  color:#ff2d2d;
+  text-shadow:
+  4px 4px #000,
+  6px 6px #ffd000;
+}
+
+@keyframes glowPulse{
+  from{transform:scale(1);}
+  to{transform:scale(1.05);}
+}
+
+/* SUBTITLE */
+
+.subtitle{
+  font-size:24px;
+  color:#A7E399;
+  margin-bottom:60px;
+}
+
+/* GAME GRID */
+
+.game-grid{
+  display:grid;
+  grid-template-columns:repeat(2,280px);
+  gap:40px;
+}
+
+/* GAME CARDS */
+
+.game-card{
+  padding:20px;
+  font-size:22px;
+  border-radius:18px;
+  border:2px solid #48B3AF;
+  cursor:pointer;
+  animation:floatCard 4s ease-in-out infinite;
+
+  background:linear-gradient(135deg,#476EAE,#48B3AF);
+  color:white;
+
+  box-shadow:
+  0 0 15px rgba(72,179,175,0.7),
+  0 0 30px rgba(72,179,175,0.5);
+
+  transition:all 0.35s ease;
+}
+
+.game-card:hover{
+  transform:scale(1.12);
+  background:linear-gradient(135deg,#48B3AF,#A7E399);
+
+  box-shadow:
+  0 0 20px #A7E399,
+  0 0 40px #48B3AF,
+  0 0 70px #F6FF99;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* FLOATING CARD ANIMATION */
+
+@keyframes floatCard{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0);}
+}
+
+/* PARTICLES BACKGROUND */
+
+.particles{
+  position:fixed;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
+
+  background-image:
+  radial-gradient(#A7E399 1px, transparent 1px),
+  radial-gradient(#48B3AF 1px, transparent 1px);
+
+  background-size:60px 60px;
+
+  animation:particlesMove 60s linear infinite;
+}
+
+@keyframes particlesMove{
+  from{transform:translateY(0);}
+  to{transform:translateY(-800px);}
+}
+
+/* RUNNING EMOJI CHARACTER */
+
+.runner{
+  position:fixed;
+  bottom:40px;
+  left:-120px;
+  font-size:200px;
+  z-index:10;
+
+  animation:moveAcross 8s linear infinite,
+           jump 0.9s infinite ease-in-out;
+}
+
+/* RUN ACROSS SCREEN */
+
+@keyframes moveAcross{
+
+  0%{
+    left:-120px;
+    transform:scaleX(1);
+  }
+
+  45%{
+    left:105vw;
+    transform:scaleX(1);
+  }
+
+  50%{
+    transform:scaleX(-1);
+  }
+
+  95%{
+    left:-120px;
+    transform:scaleX(-1);
+  }
+
+  100%{
+    left:-120px;
+    transform:scaleX(1);
+  }
+}
+
+/* JUMP ANIMATION */
+
+@keyframes jump{
+
+  0%{ transform:translateY(0); }
+
+  50%{ transform:translateY(-35px); }
+
+  100%{ transform:translateY(0); }
+
+}

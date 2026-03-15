@@ -1,0 +1,87 @@
+/* PAGE BACKGROUND */
+
+.tech-page{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+  font-family:'Segoe UI',sans-serif;
+}
+
+/* TITLE */
+
+.tech-title{
+  font-size:50px;
+  margin-bottom:20px;
+
+  text-shadow:
+  0 0 10px #00f2ff,
+  0 0 20px #00f2ff,
+  0 0 40px #00f2ff;
+
+  animation:glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+  from{
+    text-shadow:
+    0 0 10px #00f2ff,
+    0 0 20px #00f2ff;
+  }
+  to{
+    text-shadow:
+    0 0 20px #00f2ff,
+    0 0 40px #00f2ff,
+    0 0 60px #00f2ff;
+  }
+}
+
+/* GAME BOX */
+
+.quiz-box{
+  background:#1e2a3a;
+  padding:40px;
+  border-radius:20px;
+  width:400px;
+
+  box-shadow:
+  0 0 20px rgba(0,255,255,0.3),
+  0 0 40px rgba(0,255,255,0.2);
+}
+
+/* QUESTION */
+
+.question{
+  font-size:22px;
+  margin-bottom:20px;
+}
+
+/* OPTIONS */
+
+.option-btn{
+  display:block;
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:10px;
+
+  font-size:18px;
+  cursor:pointer;
+
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  color:white;
+
+  transition:all 0.3s;
+}
+
+.option-btn:hover{
+  transform:scale(1.05);
+  box-shadow:
+  0 0 10px #00f2ff,
+  0 0 20px #00f2ff;
+}
